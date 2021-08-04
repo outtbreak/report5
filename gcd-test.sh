@@ -14,7 +14,12 @@ echo "引数を二つ入力してください" > ${ans}
 ./gcd.sh 3 > ${result}
 diff ${ans} ${result} || ERROR_EXIT "error in 1-1"
 
-# 1-2:16と12を入力する。4を出力したら成功、出力しなかったらエラー
+#1-2: 入力された引数が自然数でない場合はエラー
+echo "自然数を入力してください" > ${ans}
+./gcd.sh -3 a > ${result}
+diff ${ans} ${result} || ERROR_EXIT "error in 1-2"
+
+# 1-3:16と12を入力する。4を出力したら成功、出力しなかったらエラー
 echo "最大公約数は4" > ${ans}
 ./gcd.sh 16 12 >${result}
-diff ${ans} ${result} || ERROR_EXIT "error in 1-2"
+diff ${ans} ${result} || ERROR_EXIT "error in 1-3"
